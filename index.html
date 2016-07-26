@@ -1,0 +1,90 @@
+    
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   
+ 
+      <div class="slider">
+    <ul id="imagess" class="slides">
+      
+        
+    
+    
+    </ul>
+  </div>
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+   
+
+
+      <script type="text/javascript">
+        var bilder = [
+
+'https://s19.postimg.org/h5ieqryib/Aqualinas_Reise_zum_Regenbogenk_nig_1.jpg',
+'https://s19.postimg.org/iltx8x1f7/Aqualinas_Reise_zum_Regenbogenk_nig_2.jpg',
+'https://s19.postimg.org/566wjgsxf/Aqualinas_Reise_zum_Regenbogenk_nig_3.jpg',
+'https://s19.postimg.org/xx3q9iyr7/Aqualinas_Reise_zum_Regenbogenk_nig_4.jpg',
+'https://s19.postimg.org/6nscv0xo3/Buchaustellung_Politische_Bildung_2016.jpg',
+'https://s19.postimg.org/8gv9jciur/Buchvorstellung_Grundsch_ler_1_2016_1.jpg',
+'https://s19.postimg.org/7fv0u81v7/Buchvorstellung_Grundsch_ler_1_2016_2.jpg',
+'https://s19.postimg.org/pvkjoqmb7/Buchvorstellung_Grundsch_ler_1_2016_3.jpg',
+'https://s19.postimg.org/rongd27hv/Christopher_Robin_Goepfert_2016_1.jpg',
+'https://s19.postimg.org/882qqjcdv/Christopher_Robin_Goepfert_2016_2.jpg',
+'https://s19.postimg.org/b3ftxegdv/Christopher_Robin_Goepfert_2016_3.jpg',
+'https://s19.postimg.org/4e9ahdv1v/Eva_Weiss_5_2016.jpg',
+'https://s19.postimg.org/42ru4melv/Fabian_Valentina_4_2106.jpg',
+'https://s19.postimg.org/hkyqgwqr7/Fabian_Forer_Vortrag_4_2016.jpg',
+'https://s19.postimg.org/4i33xn0j7/Frank_Reifenberg_2016.jpg',
+'https://s19.postimg.org/70osybm9f/Helmar_Oberlechner_Vortrag_Smartphonsucht_6_2016.jpg',
+'https://s19.postimg.org/xa9vh486r/Innichner_Dissertationen_Fabian_Forer_4_2016.jpg',
+'https://s19.postimg.org/97xmzzgxf/Jugendbuchvorstellung_mit_Sonja_und_Michaela_6_2.jpg',
+'https://s19.postimg.org/pk7oppv8z/Norbert_Parschalk_Vortrag_Michale_Gaismair_6_20.jpg',
+'https://s19.postimg.org/hfzkkz8tv/Pusterer_Buben_Vortrag_Verena_N_ckler_3_2016.jpg',
+'https://s19.postimg.org/yujst95yr/Pusterer_Buben_Vortrag_Verena_N_ckler_3_2016.jpg',
+'https://s19.postimg.org/gg99p9to3/Qualit_ts_Zertifikat_2015.jpg',
+'https://s19.postimg.org/x5apl6q9f/Vorlesen_f_r_Ital_Grundschule_2016_1.jpg',
+'https://s19.postimg.org/6ms2cgrjn/Vorlesen_f_r_Ital_Grundschule_2016_2.jpg',
+'https://s19.postimg.org/lk0jdh4s3/Vorlesen_f_r_Ital_Grundschule_2016_3.jpg',
+'https://s19.postimg.org/xzx977y43/Vorlesen_f_r_Kindergartengruppe_2016_1.jpg',
+'https://s19.postimg.org/8vau7jo1f/Vorlesen_f_r_Kindergartengruppe_2016_2.jpg',
+'https://s19.postimg.org/nsjb8k19v/Vorlesen_im_Seniorenwohnheim_5_2016.jpg',
+'https://s19.postimg.org/ytegdktir/Vorlesen_im_Seniorenwohnheim_2016.jpg',
+'https://s19.postimg.org/oklz7r5gz/Vorlesen_im_Sommer_2016_2.jpg',
+'https://s19.postimg.org/dz23vqz5f/Vorlesen_im_Sommer_2016.jpg',
+'https://s19.postimg.org/6kcs3dd9v/Vortrag_zur_Baumpflege_Dr_Valentin_Lobis_4_20.jpg',
+'https://s19.postimg.org/b7iu550mr/Vortrag_zur_Baumpflege_Dr_Valentin_Lobis_4_20.jpg',
+'https://s19.postimg.org/j1jfqj8fn/Vortrag_zur_Baumpflege_Dr_Valentin_Lobis_4_20.jpg',
+'https://s19.postimg.org/8sqykpkdv/Wolfgang_N_ckler_Aut_begegn_22_3_16_22.jpg',
+'https://s19.postimg.org/fkhdnk9df/Wolfgang_N_ckler_Aut_begegn_22_3_16_27.jpg',
+'https://s19.postimg.org/sda318acz/Wolfgang_N_ckler_Aut_begegn_22_3_16_33.jpg'
+
+
+		];
+
+
+        var algins = ['center','right','left'];
+      for(var i = 0; i < bilder.length; i++){
+
+        var algin = algins[parseInt(Math.random() * (3 - 0) + 0)];
+        $('#imagess').append('  <li>\
+        <img src="'+bilder[i]+'"> <!-- random image -->\
+        <div class="caption '+algin+'-align">\
+          <h3>'+bilder[i].split("/")[bilder[i].split("/").length -1].split(".")[0].replace(/_/g, ' ')+'</h3>\
+          <h5 class="light grey-text text-lighten-3">Bibliothek Innichen</h5>\
+        </div>\
+      </li>');
+      
+
+      } 
+         $(document).ready(function(){
+   
+          $('.slider').slider({full_width: true});
+        });
+      </script>
+  
