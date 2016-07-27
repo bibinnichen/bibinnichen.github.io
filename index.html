@@ -53,7 +53,7 @@
           
         var algins = ['center','right','left'];
       for(var i = 0; i < bilder.length; i++){
-		if(typeof bilder[i] != undefined && typeof descriptionDeu[i] != undefined && typeof descriptionIta[i] != undefined){
+		if(bilder[i] !== "" && typeof bilder[i] != undefined && typeof descriptionDeu[i] != undefined && typeof descriptionIta[i] != undefined){
            
         var algin = algins[parseInt(Math.random() * (3 - 0) + 0)];
         $('#imagess').append('  <li>\
