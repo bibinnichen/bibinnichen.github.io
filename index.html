@@ -57,7 +57,8 @@
 
         var algins = ['center','right','left'];
       for(var i = 0; i < bilder.length; i++){
-
+		if(isset(bilder[i]) && isset(descriptionDeu[i] && isset(descriptionIta[i])){
+           
         var algin = algins[parseInt(Math.random() * (3 - 0) + 0)];
         $('#imagess').append('  <li>\
         <img src="'+bilder[i]+'"> <!-- random image -->\
@@ -66,6 +67,9 @@
           <h5 class="light grey-text text-lighten-3">'+descriptionIta[i]+'</h5>\
         </div>\
       </li>');
+      }else{
+       alert("Fehler in listeBilder.txt in Zeile "+i+" bitte beheben!"); 
+      }
       
 
       } 
