@@ -43,7 +43,7 @@
         $.get("listeBilder.txt", function(data){
           var lines = data.split('\n');
           for(var i = 0;i < lines.length;i++){
-  		 		var fields = lines.split(";");
+  		 		var fields = lines[i].split(";");
             	bilder[i] = fields[0];
             	descriptionDeu[i] = fields[1];
            	    descriptionIta[i] = fields[2];
