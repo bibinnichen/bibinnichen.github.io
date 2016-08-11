@@ -1,0 +1,91 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf8">
+   <style type="text/css">
+     .Fixed
+{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+   </style>
+  </head>
+  <body>
+ <button id="btn-save" class="Fixed">Speichern</button>
+  </body>
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript">
+          var bilder = [];
+           var descriptionDeu = [];
+         var  descriptionIta = [];
+        $.get("https://bibinnichen.github.io/listeBilder.txt", function(data){
+          //var lines = data.split('\n');
+          var lines = "https://s19.postimg.org/5pw7rrxbn/Vorlesestunde_Sommer_2016.jpg\n\
+https://s19.postimg.org/qlii30tir/Vorlesestunde_Sommer_2016_2.jpg\n\
+https://s19.postimg.org/h5ieqryib/Aqualinas_Reise_zum_Regenbogenk_nig_1.jpg".split('\n');
+          for(var i = 0;i < lines.length;i++){
+  		 		
+            	bilder[i] = lines[i];
+            	
+			}
+          
+          
+      
+      for(var i = 0; i < bilder.length; i++){
+		if(bilder[i] !== "" && typeof bilder[i] != undefined ){
+           
+       $("body").append('<img id="img-'+i+'" style="width: 100 px;" class="materialboxed" src="'+bilder[i]+'"></img>\
+        <p>'+bilder[i]/*.split(";")[bilder[i].split(";").length - 1]*/+'</p><input required id="input-big-'+i+'" placeholder="Große Überschrift" type="text"></input>\
+        <input required id="input-small-'+i+'" placeholder="Kleine Überschrift" type="text"></input><br><br><br><hr>\
+        ');
+      }else{
+        if(bilder[i] !== ""){
+       alert("Fehler in Links in Zeile "+i+" bitte beheben!"); }
+      }
+      
+
+      }
+    
+
+        });
+      
+        $(document).ready(function(){
+
+          $("#btn-save").on('click', function(){
+            var valid = true;
+            for(var i = 0; i <= bilder.length; i ++){
+
+              if($('#input-big-'+i).val() === ''){
+                alert("Große Überschrift bei Bild "+i+" fehlt!");
+                valid = false;
+              }
+              if($('#input-small-'+i).val() === ''){
+                alert("Kleine Überschrift bei Bild "+i+" fehlt!");
+                 valid = false;
+              }
+            }
+            if(valid){
+
+              var out = '';
+
+               for(var i = 0; i < bilder.length; i++){
+
+                  out += bilder[i] + ';' + $('#input-big-'+i).val() + ';' + $('#input-small-'+i).val() + '\n';
+
+               }
+
+              $('body').empty();
+               $("body").append('<h5>Folgende Liste jetzt in listeBilder.txt kopieren:</h5><pre>'+out+"</pre>");
+            }
+          });
+        });
+        
+
+
+        
+      </script>
+
+      </html>
